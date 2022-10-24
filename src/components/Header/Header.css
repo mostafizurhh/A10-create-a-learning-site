@@ -1,0 +1,10 @@
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.active {
+    background-color: lightcoral;
+    padding: 1px 4px;
+    border-radius: 5px;
+}
