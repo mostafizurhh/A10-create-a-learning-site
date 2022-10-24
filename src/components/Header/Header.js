@@ -8,7 +8,7 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar'>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar' fixed='top'>
             <Container>
                 <Link to="/">
                     <img src={Clogo} height='25' width='25' alt="" className='me-1' />
