@@ -14,7 +14,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
 
-    const { providerLogin, createUser } = useContext(AuthContext)
+    const { providerLogin, createUser, emailVerification } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -77,6 +77,7 @@ const Register = () => {
                 console.log(user)
                 setError('')
                 form.reset()
+                handleEmailVerification()
                 toast.success('Please verify your email')
             })
             .catch(error => {
@@ -85,12 +86,17 @@ const Register = () => {
             })
     }
 
+    const handleEmailVerification = () => {
+        emailVerification()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     const handleTerms = event => {
         setTermsAccepted(event.target.checked)
     }
 
     return (
-        <div>
+        <div className='container'>
             <Form onSubmit={handleSubmit} className='w-50 mt-3 mb-3 p-2'>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>

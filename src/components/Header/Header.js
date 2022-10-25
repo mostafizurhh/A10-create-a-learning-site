@@ -5,8 +5,20 @@ import Container from 'react-bootstrap/Container';
 import Clogo from './clogo.png'
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { Image } from 'react-bootstrap';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar'>
             <Container>
@@ -22,9 +34,33 @@ const Header = () => {
                         <NavLink to="/faq" className={'ms-4'}>FAQ</NavLink>
                     </Nav>
                     <Nav>
-                        <NavLink to="/login" className={'me-3'}>Login</NavLink>
-                        <NavLink to="/register">Register
-                        </NavLink>
+                        {/* conditional formating for new and existing user */}
+                        <Link to="/profile">
+                            {/* conditional formating for image */}
+                            {
+                                user?.photoURL ?
+                                    <Image
+                                        style={{ height: '30px' }} roundedCircle
+                                        src={user?.photoURL}>
+                                    </Image>
+                                    : <FaUser></FaUser>
+                            }
+                        </Link>
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <button onClick={handleLogOut} className='btn btn-primary btn-sm ms-2'>Logout</button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login' className='ms-2'>Login</Link>
+                                        <Link to='/register' className='ms-2'>Register</Link>
+                                    </>
+                            }
+                        </>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
