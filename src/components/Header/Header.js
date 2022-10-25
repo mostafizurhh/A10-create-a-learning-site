@@ -20,7 +20,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar text-white'>
+        <Navbar collapseOnSelect expand="md" bg="info" variant="info" className='navbar text-white'>
             <Container>
                 <Link to="/">
                     <img src={Clogo} height='25' width='25' alt="" className='me-1' />

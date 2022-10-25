@@ -8,7 +8,7 @@ import { routes } from './Routes/Routes/Routes';
 
 function App() {
   return (
-    <div className='container'>
+    <div className='container bg-light'>
       <RouterProvider router={routes}>
       </RouterProvider>
     </div>
