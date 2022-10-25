@@ -22,10 +22,12 @@ const Courses = () => {
 
     return (
         <div className='courses mt-4 mb-4'>
-            <div className='d-flex d-md-block flex-wrap'>
+            <div className='d-flex d-md-block flex-wrap course-name'>
                 {
                     categories.map(category => <p key={category.id}>
-                        <Link to={`/category/${category.id}`} className='ms-2'>{category.name}</Link>
+                        <button className='btn' >
+                            <Link to={`/category/${category.id}`}>{category.name}</Link>
+                        </button>
                     </p>)
                 }
             </div>

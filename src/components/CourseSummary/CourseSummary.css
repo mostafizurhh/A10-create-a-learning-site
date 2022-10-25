@@ -1,10 +1,15 @@
 .coursesummary {
     border: 1px solid lightgreen;
     border-radius: 10px;
-
+    background: repeating-linear-gradient(rgb(243, 81, 81), skyblue);
+    color: white;
 }
 
 .coursesummary img {
     height: 100px;
     padding: 10px;
+}
+
+.coursesummary a {
+    text-decoration: none;
 }

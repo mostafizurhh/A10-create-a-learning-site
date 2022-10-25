@@ -1,0 +1,6 @@
+.singleCourse {
+    border: 1px solid lightgreen;
+    border-radius: 10px;
+    background: repeating-linear-gradient(rgb(140, 89, 242), steelblue);
+    color: white
+}

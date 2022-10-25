@@ -2,6 +2,8 @@ import React from 'react';
 import Clogo from './clogo.png';
 import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube, } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import './Footer.css'
 
 const Footer = () => {
     return (
@@ -28,12 +30,11 @@ const Footer = () => {
                         <small>(Available : Mon - Thu, 10:00 AM to 7:00 PM)</small>
                     </div>
                 </div>
-                <div className='ms-4'>
-                    <p className='mb-1'>Courses</p>
-                    <p className='mb-1'>FAQ</p>
-                    <p className='mb-1'>Blog</p>
-                    <p className='mb-1'>About Us</p>
-                    <p className='mb-1'>Terms and Conditions</p>
+                <div className='ms-4 d-flex flex-column links'>
+                    <Link to='/courses' className='mb-1'>Courses</Link>
+                    <Link to='/faq' className='mb-1'>FAQ</Link>
+                    <Link to='/blog' className='mb-1'>Blog</Link>
+                    <Link to='/terms' className='mb-1'>Terms and Conditions</Link>
                 </div>
             </div>
             <div className='text-center mt-3'>

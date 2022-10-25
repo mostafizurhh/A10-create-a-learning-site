@@ -10,6 +10,20 @@
     gap: 10px;
 }
 
+.course-name {
+    text-align: center;
+}
+
+button {
+    background: repeating-radial-gradient(skyblue, lightcoral);
+
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
 @media screen and (max-width:576px) {
     .courses {
         display: flex;
