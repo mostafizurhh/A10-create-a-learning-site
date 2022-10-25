@@ -4,7 +4,7 @@ import './CourseSummary.css'
 
 const CourseSummary = ({ course }) => {
     // console.log(course)
-    const { name, image, details, price } = course
+    const { name, image, details, price, } = course
     return (
         <div className='coursesummary text-center'>
             <img src={image} className='img-fluid' alt="" />

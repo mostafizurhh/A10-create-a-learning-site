@@ -155,7 +155,9 @@ const Register = () => {
                         onClick={handleTerms}
                         label={<>Accepts Our <Link to='/terms'> Terms and Conditions</Link></>} />
                 </Form.Group>
+
                 <ToastContainer autoClose={3000} />
+
                 <Form.Group className='d-flex flex-column'>
                     <Form.Text className='text-danger mt-2 mb-2'>
                         {error} {/* show error in UI */}
