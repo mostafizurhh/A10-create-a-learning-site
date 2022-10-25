@@ -4,17 +4,25 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { toast } from 'react-hot-toast';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
     const [error, setError] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
+    const navigate = useNavigate();
 
-    const { providerLogin, createUser, emailVerification } = useContext(AuthContext)
+    const showToastMessage = () => {
+        toast.success('Please verify your email !', {
+            position: toast.POSITION.TOP_CENTER
+        });
+    };
+
+    const { providerLogin, createUser, emailVerification, updateUserInfo } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -45,6 +53,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
+        // console.log(name, photoURL)
 
         if (!/(?=.*[a-z])/.test(password)) {
             setError('Please provide at least 1 lowercase letter')
@@ -77,8 +86,9 @@ const Register = () => {
                 console.log(user)
                 setError('')
                 form.reset()
+                handleUpdateUserInfo(name, photoURL)
                 handleEmailVerification()
-                toast.success('Please verify your email')
+                navigate('/')
             })
             .catch(error => {
                 console.error(error)
@@ -91,12 +101,24 @@ const Register = () => {
             .then(() => { })
             .catch(error => console.error(error))
     }
+
+    const handleUpdateUserInfo = (name, photoURL) => {
+        const info = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserInfo(info)
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     const handleTerms = event => {
         setTermsAccepted(event.target.checked)
     }
 
     return (
         <div className='container'>
+
             <Form onSubmit={handleSubmit} className='w-50 mt-3 mb-3 p-2'>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
@@ -128,11 +150,12 @@ const Register = () => {
                         onClick={handleTerms}
                         label={<>Accepts Our <Link to='/terms'> Terms and Conditions</Link></>} />
                 </Form.Group>
+                <ToastContainer autoClose={3000} />
                 <Form.Group className='d-flex flex-column'>
                     <Form.Text className='text-danger mt-2 mb-2'>
                         {error} {/* show error in UI */}
                     </Form.Text>
-                    <Button variant="primary" type="submit" className='mb-2 w-25' disabled={!termsAccepted}>
+                    <Button onClick={showToastMessage} variant="primary" type="submit" className='mb-2 w-25' disabled={!termsAccepted}>
                         Register
                     </Button>
                 </Form.Group>

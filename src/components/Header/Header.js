@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { Image } from 'react-bootstrap';
+import { Button, Image, OverlayTrigger, Tooltip, } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar'>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navbar text-white'>
             <Container>
                 <Link to="/">
                     <img src={Clogo} height='25' width='25' alt="" className='me-1' />
@@ -39,18 +39,29 @@ const Header = () => {
                             {/* conditional formating for image */}
                             {
                                 user?.photoURL ?
-                                    <Image
-                                        style={{ height: '30px' }} roundedCircle
-                                        src={user?.photoURL}>
-                                    </Image>
-                                    : <FaUser></FaUser>
+                                    <OverlayTrigger
+                                        placement="bottom"
+                                        overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
+                                    >
+                                        {({ ref, ...triggerHandler }) => (
+
+                                            <Image
+                                                ref={ref}
+                                                style={{ height: '30px' }}
+                                                rounded
+                                                src={user?.photoURL}
+                                                {...triggerHandler}
+                                            />
+                                        )}
+                                    </OverlayTrigger>
+                                    :
+                                    <FaUser></FaUser>
                             }
                         </Link>
                         <>
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
                                         <button onClick={handleLogOut} className='btn btn-primary btn-sm ms-2'>Logout</button>
                                     </>
                                     :
