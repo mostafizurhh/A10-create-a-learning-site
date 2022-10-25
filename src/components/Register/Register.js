@@ -1,10 +1,11 @@
+import './Register.css'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,6 +16,8 @@ const Register = () => {
     const [error, setError] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const showToastMessage = () => {
         toast.success('Please verify your email !', {
@@ -32,6 +35,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -40,6 +44,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -121,8 +126,8 @@ const Register = () => {
 
             <Form onSubmit={handleSubmit} className='w-50 mt-3 mb-3 p-2'>
                 <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Enter your name" />
+                    <Form.Label>Full Name</Form.Label>
+                    <Form.Control type="text" name='name' placeholder="Enter your full name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPhoto">

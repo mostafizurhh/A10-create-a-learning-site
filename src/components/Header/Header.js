@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { Button, Image, OverlayTrigger, Tooltip, } from 'react-bootstrap';
+import { Image, OverlayTrigger, Tooltip, } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
@@ -35,16 +35,15 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         {/* conditional formating for new and existing user */}
-                        <Link to="/profile">
-                            {/* conditional formating for image */}
+                        <>
+                            {/* conditional formating for image with tooltip */}
                             {
-                                user?.photoURL ?
-                                    <OverlayTrigger
-                                        placement="bottom"
-                                        overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
-                                    >
-                                        {({ ref, ...triggerHandler }) => (
-
+                                <OverlayTrigger
+                                    placement="bottom"
+                                    overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}
+                                >
+                                    {({ ref, ...triggerHandler }) => (
+                                        user?.photoURL ?
                                             <Image
                                                 ref={ref}
                                                 style={{ height: '30px' }}
@@ -52,12 +51,13 @@ const Header = () => {
                                                 src={user?.photoURL}
                                                 {...triggerHandler}
                                             />
-                                        )}
-                                    </OverlayTrigger>
-                                    :
-                                    <FaUser></FaUser>
+                                            :
+                                            <FaUser></FaUser>
+                                    )}
+                                </OverlayTrigger>
+
                             }
-                        </Link>
+                        </>
                         <>
                             {
                                 user?.uid ?
@@ -71,7 +71,6 @@ const Header = () => {
                                     </>
                             }
                         </>
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>
