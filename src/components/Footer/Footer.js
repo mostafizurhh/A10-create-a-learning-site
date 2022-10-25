@@ -1,7 +1,7 @@
 import React from 'react';
 import Clogo from './clogo.png';
 import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaTwitter, FaYoutube, } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube, } from "react-icons/fa";
 
 const Footer = () => {
     return (

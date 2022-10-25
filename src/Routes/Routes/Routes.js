@@ -5,7 +5,7 @@ import FAQ from "../../components/FAQ/FAQ";
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
 import Main from "../../layout/Main/Main";
-import Register from "../../Register/Register";
+import Register from "../../components/Register/Register";
 
 export const routes = createBrowserRouter([
     {
