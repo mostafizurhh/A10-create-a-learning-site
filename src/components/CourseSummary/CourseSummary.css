@@ -1,0 +1,10 @@
+.coursesummary {
+    border: 1px solid lightgreen;
+    border-radius: 10px;
+
+}
+
+.coursesummary img {
+    height: 100px;
+    padding: 10px;
+}

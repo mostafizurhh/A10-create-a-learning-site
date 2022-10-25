@@ -1,0 +1,11 @@
+.courses {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
