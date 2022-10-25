@@ -9,6 +9,7 @@ import TermsAndConditions from "../../components/TermsAndConditions/TermsAndCond
 import Error from "../../components/Error/Error";
 import CourseDetail from "../../components/CourseDetail/CourseDetail";
 import Categories from "../../components/Categories/Categories";
+import Home from "../../components/Home/Home";
 
 
 export const routes = createBrowserRouter([
@@ -18,7 +19,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Main></Main>
+                element: <Home></Home>
             },
             {
                 path: '/courses',

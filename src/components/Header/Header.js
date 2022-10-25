@@ -22,10 +22,10 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="md" bg="info" variant="info" className='navbar text-white'>
             <Container>
-                <Navbar.Brand >
+                <Link to='/'>
                     <img src={Clogo} height='25' width='25' alt="" className='me-1' />
                     Fun With Programming
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto ms-5 ps-5">
