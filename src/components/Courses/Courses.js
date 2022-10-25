@@ -22,10 +22,10 @@ const Courses = () => {
 
     return (
         <div className='courses mt-4 mb-4'>
-            <div>
+            <div className='d-flex d-md-block flex-wrap'>
                 {
                     categories.map(category => <p key={category.id}>
-                        <Link to={`/category/${category.id}`} >{category.name}</Link>
+                        <Link to={`/category/${category.id}`} className='ms-2'>{category.name}</Link>
                     </p>)
                 }
             </div>

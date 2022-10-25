@@ -9,3 +9,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
+@media screen and (max-width:576px) {
+    .courses {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .course-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

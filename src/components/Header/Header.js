@@ -33,6 +33,7 @@ const Header = () => {
                         <NavLink to="/blog" className={'ms-4'}>Blog</NavLink>
                         <NavLink to="/faq" className={'ms-4'}>FAQ</NavLink>
                     </Nav>
+
                     <Nav>
                         {/* conditional formating for new and existing user */}
                         <>
