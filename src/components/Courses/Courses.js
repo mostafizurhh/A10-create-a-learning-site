@@ -9,13 +9,13 @@ const Courses = () => {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/course-categories')
+        fetch('https://fun-with-programming-server.vercel.app/course-categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://fun-with-programming-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
