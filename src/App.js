@@ -1,23 +1,27 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { FaToggleOff } from 'react-icons/fa';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { ThemeContext } from './contexts/ThemeProvider/ThemeProvider';
 import { routes } from './Routes/Routes/Routes';
+import CourseDetail from './components/CourseDetail/CourseDetail';
+import AllCourses from './components/AllCourses/AllCourses';
 
 
 
 function App() {
   const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext)
-  console.log(theme)
+  // console.log(theme)
   return (
     <div className='container' style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+
       <div onClick={toggleTheme} className='d-flex align-items-center'>
         <FaToggleOff className='me-2'></FaToggleOff>
         <small>{isDark ? 'Dark' : 'Light'} Mode</small>
       </div>
       <RouterProvider router={routes}>
       </RouterProvider>
+
     </div>
   );
 }
