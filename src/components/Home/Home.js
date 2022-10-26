@@ -19,7 +19,6 @@ const Home = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption className='carousel'>
-                        <h3>Amazing BootCamp</h3>
                         <p>As a student you can enjoy many bootcamps like this to strengthen your knowledge.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -30,8 +29,7 @@ const Home = () => {
                         alt="Second slide"
                     />
                     <Carousel.Caption className='carousel'>
-                        <h3>Group Work</h3>
-                        <p>Group work is a proven way of better learning and understanding. You will have some group works to do.</p>
+                        <p>Group work is a proven way of better learning and understanding.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -41,7 +39,6 @@ const Home = () => {
                         alt="Third slide"
                     />
                     <Carousel.Caption className='carousel'>
-                        <h3>Personal Project</h3>
                         <p>Our motto is "Learning by doing" and that's why all of our courses are project based.</p>
                     </Carousel.Caption>
                 </Carousel.Item>

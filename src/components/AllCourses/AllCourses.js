@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaDownload } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './AllCourses.css'
 
 const AllCourses = ({ course }) => {
@@ -11,10 +13,15 @@ const AllCourses = ({ course }) => {
             <div className='d-flex justify-content-between mb-2'>
                 <h6>Name: {course.name}</h6>
                 <h6>Price: ${course.price}</h6>
-                <button className='btn btn-primary btn-sm'>Get premium access</button>
+                <FaDownload></FaDownload>
             </div>
             <div>
                 {course.details}
+            </div>
+            <div className='text-center mt-3'>
+                <Link to={`/checkout/${course.id}`}>
+                    <button className='btn btn-primary btn-sm'>Get premium access</button>
+                </Link>
             </div>
         </div>
     );

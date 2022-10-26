@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+#light {
+  background-color: #e5d0ec;
+}
+
+#dark {
+  background-color: #3e0d50;
+}
 
 .App-logo {
   height: 40vmin;
