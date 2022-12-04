@@ -1,6 +1,6 @@
 # Fun With Programming
 
-## Live Site Link: https://fun-with-programming.web.app/ or https://fun-with-programming.firebaseapp.com/
+## Live Site Link: https://fun-with-programming.web.app/
 
 ##About This Project
 
